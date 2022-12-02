@@ -1,4 +1,8 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<map>
+#include<math.h>
 #define ll long long int
 #define pii pair<int,int>
 #define mod 1000000007
@@ -607,7 +611,6 @@ void bfs(CubeState *state, int phase)
     forwMove.clear(), backwMove.clear();
     queue<pair<vector<int>, int>> q;
     CubeState *end = new CubeState;
-    // cout << "here";
     q.push(mp((*state.*getGState[phase])(), 1));
     q.push(mp((*end.*endGState[phase])(), 2));
 
@@ -619,7 +622,6 @@ void bfs(CubeState *state, int phase)
     delete end;
     while(!q.empty())
     {
-        // cout<<q.size()<<" ";
         pair<vector<int>, int> u = q.front();
         int dir = u.second;
         vector<int> soFar = (dir == 1 ? forwMove[u.first] : backwMove[u.first]);
@@ -697,8 +699,6 @@ int main()
 {
     init();
     char str[200];
-    // freopen("in", "r", stdin);
-    // freopen("out", "w", stdout);
     gets(str);
     vector<string> scrambleSequence;
     string scrambleString(str);
